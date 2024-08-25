@@ -1,33 +1,33 @@
 import styled from "styled-components";
 
 export const CalculatorContainer = styled.div`
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1.5rem;
 `;
 
 export const CalculatorHeader = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: .3rem;
+  justify-content: space-between;
 `;
 
 export const CalculatorTitile = styled.h1`
-  font-size: 24px;
   flex-basis: 310px;
+  font-size: 24px;
 `;
 
 export const CalculatorClearButton = styled.button`
   background-color: transparent;
-  cursor: pointer;
   border: none;
-  text-decoration: underline;
   color: var(--color-button);
-  font-weight: 500;
-  font-size: 1rem;
+  cursor: pointer;
   font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
 `;
 
 export const CalculatorBody = styled.form`
@@ -39,22 +39,22 @@ export const CalculatorBody = styled.form`
 export const CalculatorBodyWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   gap: 1rem;
+  width: 100%;
 `;
 
 export const CalculatorCalculate = styled.button`
+  align-items: center;
   background-color: var(--background-button);
+  border-radius: var(--border-radius-button);
   border: none;
   cursor: pointer;
-  font-size: 1.1rem;
-  padding: 1rem 3rem;
-  border-radius: var(--border-radius-button);
-  font-family: inherit;
-  font-weight: 700;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
   gap: .5rem;
+  justify-content: center;
+  padding: 1rem 3rem;
   width: 327px;
 `;

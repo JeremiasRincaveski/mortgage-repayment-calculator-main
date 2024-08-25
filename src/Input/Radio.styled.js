@@ -2,30 +2,30 @@ import styled from "styled-components";
 import { InputLabel } from "./Input.styled";
 
 export const RadioContainer = styled.div`
+  cursor: default;
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  cursor: default;
 `;
 
 export const RadioLabel = styled(InputLabel).attrs({ as: 'p'})``;
 
 export const RadioWrapper = styled.label`
-  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  padding: 1.4rem 1rem;
-  gap: .5rem;
-  font-weight: 700;
-  height: 1ch;
+  border: 1px solid var(--border);
   cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  gap: .5rem;
+  height: 1ch;
+  justify-content: flex-start;
+  padding: 1.4rem 1rem;
 
   > input {
-    position: absolute;
-    opacity: 0;
     height: 0;
+    opacity: 0;
+    position: absolute;
     width: 0;
   
     &:checked + span {
@@ -35,13 +35,11 @@ export const RadioWrapper = styled.label`
   }
 
   > span {
+    background-color: transparent;
+    border-radius: 100%;
+    border: 1px solid var(--border);
+    height: 16px;
     margin-top: 2px;
     width: 16px;
-    height: 16px;
-    background-color: transparent;
-    border: 1px solid var(--border);
-    border-radius: 100%;
   }
-
-
 `;

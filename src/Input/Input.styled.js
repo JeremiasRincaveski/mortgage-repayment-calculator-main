@@ -14,12 +14,12 @@ export const InputLabel = styled.label`
 
 export const InputWrapper = styled.div`
   border-radius: var(--border-radius);
-  overflow: hidden;
   border: 1px solid var(--border);
   cursor: pointer;
   display: flex;
   flex-direction: ${({$direction}) => $direction ? 'row-reverse' : 'row'};
   gap: 1rem;
+  overflow: hidden;
   padding-left: ${({$direction}) => $direction ? '1rem' : 0};
   position: relative;
 `;
