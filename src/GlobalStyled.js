@@ -9,6 +9,7 @@ const GlobalStyled = createGlobalStyle`
     --border: hsl(200, 24%, 40%);
     --color-button: hsl(200, 24%, 40%);
     --color-span: hsl(200, 24%, 40%);
+    --background-result: hsl(202, 55%, 16%);
   }
 
   * {
