@@ -24,7 +24,7 @@ const GlobalStyled = createGlobalStyle`
   #root {
     font-family: "Plus Jakarta Sans", sans-serif;
     width: 100vw;
-    background-color: hsl(203, 41%, 72%);
+    background-color: hsl(202, 86%, 94%);
     display: flex;
     align-items: center;
     justify-content: center;
