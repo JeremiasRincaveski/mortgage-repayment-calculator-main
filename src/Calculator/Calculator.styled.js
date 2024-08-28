@@ -5,6 +5,7 @@ export const CalculatorContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
+  flex: 1;
 `;
 
 export const CalculatorHeader = styled.div`

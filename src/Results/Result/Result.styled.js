@@ -5,6 +5,7 @@ export const ResultContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100%;
 `;
 
 export const ResultTitle = styled(ResultDefaultTitle)`
@@ -14,9 +15,11 @@ export const ResultTitle = styled(ResultDefaultTitle)`
 export const ResultDescription = styled(ResultDefaultDescription)`
   text-align: start;
   font-size: .9rem;
+  line-height: 150%;
 `;
 
 export const ResultWrapper = styled.div`
+  margin-top: 1rem;
   background: hsl(202, 56%, 12%);
   border-radius: var(--border-radius);
   padding: 0 1rem;
@@ -34,12 +37,12 @@ export const ResultWrapperContainer = styled.div`
   padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  width: 100%;
 `;
 
 export const ResultMonthly = styled.p`
   color: var(--color-month);
-  font-size: 1.7rem;
+  font-size: 2.3rem;
   font-weight: 700;
   
   &::before {

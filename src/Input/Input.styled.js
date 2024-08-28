@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex: ${({$flex}) => $flex ? '1 1 180px' : '1 1 100%'};
+  flex: ${({$flex}) => $flex ? '1 1 150px' : '1 1 100%'};
   gap: .5rem;
 `;
 

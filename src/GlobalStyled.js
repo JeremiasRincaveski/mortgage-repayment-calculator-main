@@ -23,8 +23,15 @@ const GlobalStyled = createGlobalStyle`
 
   #root {
     font-family: "Plus Jakarta Sans", sans-serif;
-    height: 100vh;
     width: 100vw;
+    background-color: hsl(203, 41%, 72%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @media (min-width: 840px) {
+      height: 100vh;
+    }
   }
 `;
 

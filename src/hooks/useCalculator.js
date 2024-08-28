@@ -98,6 +98,7 @@ const useCalculator = () => {
   const clearAll = () => {
     setAmount('');
     setErrors({ amount: '', term: '', rate: ''});
+    setIsCalculate(false);
     setRate('');
     setTerm('');
     setType('');
