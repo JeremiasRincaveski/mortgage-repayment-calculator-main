@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { CalculatorContext } from "../context/CalculatorContext";
 
 const useCalculator = () => {
   const {
     amount, setAmount,
-    term, setTerm,
-    rate, setRate,
-    type, setType,
     errors, setErrors,
+    isCalculate, setIsCalculate,
+    monthly, setMonthly,
+    rate, setRate,
+    term, setTerm,
+    total, setTotal,
+    type, setType,
   } = useContext(CalculatorContext);
-  const [radio1, setRadio1] = useState(false);
-  const [radio2, setRadio2] = useState(false);
   
-  const regex = /\d+((,|.)\d)*?/
+  const regex = /^\d+((,|.)\d+)*?$/;
 
   const handleAmount = (e) => {
     setAmount(e.target.value);
@@ -81,14 +82,25 @@ const useCalculator = () => {
 
       return newErrors;
     });
+
+    if (Object.keys(errors) == 0) {
+      setIsCalculate(true);
+      // I é a taxa dividida por um ano
+      const I = (rate / 100) / 12;
+      // N é a quantidade de anos vezes 12
+      const N = term * 12;
+      const result = ((amount * I * (1 + I)**N) / (((1 + I)**N) - 1));
+      setMonthly(result);
+      setTotal(result * N);
+    }
   };
 
   const clearAll = () => {
     setAmount('');
+    setErrors({ amount: '', term: '', rate: ''});
     setRate('');
     setTerm('');
     setType('');
-    setErrors({ amount: '', term: '', rate: ''});
   };
   
 
@@ -99,7 +111,8 @@ const useCalculator = () => {
     type,
     handleType,
     calculate, validityInput, errors,
-    clearAll, radio1, radio2
+    clearAll, isCalculate,
+    monthly, total
   };
 };
 

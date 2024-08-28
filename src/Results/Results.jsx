@@ -1,12 +1,15 @@
+import useCalculator from "../hooks/useCalculator";
 import Result from "./Result/Result";
 import ResultDefault from "./ResultDefault/ResultDefault";
 import { ResultsContainer } from "./Results.styled";
 
 const Results = () => {
+  const { isCalculate } = useCalculator();
+
   return ( 
     <ResultsContainer>
-      {/* <ResultDefault /> */}
-      <Result />
+      {!isCalculate && <ResultDefault />}
+      {isCalculate && <Result /> }   
     </ResultsContainer> 
   );
 }

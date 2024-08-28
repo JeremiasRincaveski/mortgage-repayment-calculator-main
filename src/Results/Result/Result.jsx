@@ -1,6 +1,8 @@
+import useCalculator from "../../hooks/useCalculator";
 import { ResultContainer, ResultDescription, ResultMonthly, ResultTerm, ResultTitle, ResultWrapper, ResultWrapperContainer } from "./Result.styled";
 
 const Result = () => {
+  const { monthly, total } = useCalculator();
   return (
     <ResultContainer>
       <ResultTitle>Your results</ResultTitle>
@@ -12,12 +14,12 @@ const Result = () => {
       <ResultWrapper>
         <ResultWrapperContainer>
           <ResultDescription>Your monthly repayments</ResultDescription>
-          <ResultMonthly>1,797.74</ResultMonthly>
+          <ResultMonthly>{monthly.toFixed(2)}</ResultMonthly>
         </ResultWrapperContainer>
         
         <ResultWrapperContainer>
           <ResultDescription>Total you'll repay over the term</ResultDescription>
-          <ResultTerm>539,322.94</ResultTerm>
+          <ResultTerm>{total.toFixed(2)}</ResultTerm>
         </ResultWrapperContainer>
       </ResultWrapper>
     </ResultContainer>
