@@ -22,6 +22,17 @@ export const InputWrapper = styled.div`
   overflow: hidden;
   padding-left: ${({$direction}) => $direction ? '1rem' : 0};
   position: relative;
+
+  &:has(input:focus) {
+    border-color: hsl(61, 70%, 52%);
+  }
+
+  &:has(input:focus) {
+    span {
+      background: hsl(61, 70%, 52%);
+      color: hsl(202, 55%, 16%);
+    }
+  }
 `;
 
 export const InputHint = styled.span`
@@ -39,4 +50,11 @@ export const InputField = styled.input`
   font-weight: 700;
   outline: none;
   width: 100%;
+`;
+
+export const InputError = styled.span`
+  bottom: -1.3rem;
+  color: hsl(4, 69%, 50%);
+  font-weight: 500;
+  font-size: 0.9rem;
 `;

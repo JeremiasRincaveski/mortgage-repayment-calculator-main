@@ -22,6 +22,11 @@ export const RadioWrapper = styled.label`
   justify-content: flex-start;
   padding: 1.4rem 1rem;
 
+  &:has(input:checked) {
+    background: hsla(61, 70%, 52%, .3);
+    border-color: hsl(61, 70%, 52%);
+  }
+
   > input {
     height: 0;
     opacity: 0;

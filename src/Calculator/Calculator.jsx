@@ -1,47 +1,63 @@
+import useCalculator from "../hooks/useCalculator";
 import Input from "../Input/Input";
 import Radio from "../Input/Radio";
 import { CalculatorBody, CalculatorBodyWrapper, CalculatorCalculate, CalculatorClearButton, CalculatorContainer, CalculatorHeader, CalculatorTitile } from "./Calculator.styled";
 
 const Calculator = () => {
+  const { 
+    amount, handleAmount,
+    term,   handleTerm,
+    rate,   handleRate,
+    calculate, clearAll,
+  } = useCalculator();
+
   return ( 
     <CalculatorContainer>
       <CalculatorHeader>
         <CalculatorTitile>Mortgage Calculator</CalculatorTitile>
 
-        <CalculatorClearButton>Clear All</CalculatorClearButton>
+        <CalculatorClearButton onClick={() => clearAll()}>Clear All</CalculatorClearButton>
       </CalculatorHeader>
 
-      <CalculatorBody>
-       <CalculatorBodyWrapper>
-        <Input 
-            label={'Mortgage Amount'} 
+      <CalculatorBody noValidate>
+        <CalculatorBodyWrapper>
+          <Input 
+            changeValue={handleAmount}
             hint={'£'}
             id={'amount'}
-            value={'300,00'}
+            label={'Mortgage Amount'} 
+            value={amount}
           />
           <Input 
-            label={'Mortgage Term'} 
-            isHalfWidth={true} 
+            changeValue={handleTerm}
             hint={'years'}
             id={'term'}
-            value={25}
+            isHalfWidth={true} 
+            label={'Mortgage Term'} 
+            value={term}
           />
           <Input 
-            label={'Interest Rate'}
-            isHalfWidth={true}
+            changeValue={handleRate}
             hint={'%'}
             id={'rate'}
-            value={5.25}
+            isHalfWidth={true}
+            label={'Interest Rate'}
+            value={rate}
           />
-       </CalculatorBodyWrapper>
+        </CalculatorBodyWrapper>
 
-       <Radio 
-        firstValue={'Repayment'}
-        secondValue={'Interest Only'}
-       />
+        <Radio 
+          firstValue={'Repayment'}
+          secondValue={'Interest Only'}
+        />
+
+        <CalculatorCalculate
+          onClick={e => calculate(e)}
+        >
+          <img src="images/icon-calculator.svg" alt="" />
+          Calculate Repayments
+        </CalculatorCalculate>
       </CalculatorBody>  
-
-      <CalculatorCalculate><img src="images/icon-calculator.svg" alt="" />Calculate Repayments</CalculatorCalculate>
     </CalculatorContainer>
   );
 }

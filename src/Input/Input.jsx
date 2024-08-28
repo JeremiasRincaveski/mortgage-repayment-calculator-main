@@ -1,8 +1,10 @@
 import { useRef } from "react";
-import { InputContainer, InputField, InputHint, InputLabel, InputWrapper } from "./Input.styled";
+import { InputContainer, InputError, InputField, InputHint, InputLabel, InputWrapper } from "./Input.styled";
+import useCalculator from "../hooks/useCalculator";
 
-const Input = ({ isHalfWidth = false, id, label, value, changeValue, hint }) => {
+const Input = ({ changeValue, hint, id, isHalfWidth = false, label, value }) => {
   const input = useRef(null);
+  const { validityInput, errors } = useCalculator();
 
   const focusInput = () => {
     input.current.focus();
@@ -21,11 +23,15 @@ const Input = ({ isHalfWidth = false, id, label, value, changeValue, hint }) => 
 
       <InputField 
         id={id} 
-        value={value} 
-        onChange={() => changeValue()}
+        onChange={(e) => changeValue(e)}
+        onBlur={(e) => validityInput(e)}
         ref={input}
+        value={value} 
+        required
       />
     </InputWrapper>
+
+    <InputError>{errors && errors[id]}</InputError>
    </InputContainer> 
   );
 };
